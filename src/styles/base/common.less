@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 10px;
+    &:after {
+        clear: both;
+        display: block;
+        content: '';
+    }
+}
+
+.col {
+    float: left;
+    display: block;
+    min-width: 400px;
+    &.left {
+        width: 33%;
+    }
+    &.rigth {
+        width: 67%;
+    }
+}

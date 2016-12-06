@@ -1,0 +1,28 @@
+drop-grid {
+    .base-component();
+    drop-grid-row {
+        .base-component();
+        &:after {
+            clear: both;
+            display: block;
+            content: '';
+        }
+        drop-grid-cell {
+            .base-component();
+            padding: 15px;
+            border-left: 1px solid;
+            border-top: 1px solid;
+            display: inline-block;
+            float: left;
+            transition: all 200ms ease-in-out;
+            &:last-child {
+                border-right: 1px solid;
+            }
+        }
+        &:last-child {
+            drop-grid-cell {
+                border-bottom: 1px solid;
+            }
+        }
+    }
+}

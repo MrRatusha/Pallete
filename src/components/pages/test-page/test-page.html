@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="col left">
+        <controls
+            reset="$ctrl.onReset()"
+            new-data="$ctrl.rows"
+            load="$ctrl.onLoad(data)"></controls>
+        <h2>Pallete</h2>
+        <drag-bar>
+            <drag-bar-item
+                draggable="true"
+                ng-repeat="color in $ctrl.colors"
+                style="background-color: rgb({{color.rgb}});"
+                data-color="{{color.rgb}}"></drag-bar-item>
+        </drag-bar>
+    </div>
+
+    <div class="col right">
+        <h2>Grid</h2>
+        <drop-grid>
+            <drop-grid-row ng-repeat="row in $ctrl.rows track by $index">
+                <drop-grid-cell
+                ng-repeat="col in row track by $index"
+                on-drop="$ctrl.setNewColor(color, $index, $parent.$index)"
+                style="background: rgb({{ col }});"
+                data-color="{{ col }}"></drop-grid-cell>
+            </drop-grid-row>
+        </drop-grid>
+        <pre ng-repeat="row in $ctrl.rows">{{ row }}</pre>
+    </div>
+</div>

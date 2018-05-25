@@ -8,9 +8,15 @@
             this.resetData();
         }
 
-        setNewColor(color, $index, $parentIndex) {
+        setNewColor(color, $index, $parentIndex, onDrop) {
             this.rows[$parentIndex][$index] = color;
-            this.$scope.$apply();
+            if (onDrop) {
+                this.$scope.$apply();
+            }
+        }
+
+        setRowNewColor(color, $index) {
+            this.rows[$index] = this.rows[$index].map(() => color);
         }
 
         resetData() {
